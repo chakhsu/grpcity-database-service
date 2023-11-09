@@ -1,0 +1,8 @@
+{
+  "standard.enable": true,
+  "standard.autoFixOnSave": true,
+  "eslint.enable": false,
+  "protoc": {
+    "options": ["--proto_path=../protos"]
+  }
+}
