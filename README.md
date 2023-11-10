@@ -1,123 +1,150 @@
-# gRPCity Database Service
+# Database Service
 
-基于 `gRPCity` 和 `sequelize` 打造的数据库 gRPC 微服务，提供完整的数据 CRUD 的能力，为 BFF 层赋能。同时**代码生成**是本项目一个亮点，支持`model`、 `proto`、 `handler` 和 `test` 三处位置的代码生成，也就是项目能根据`table sql`分步进行代码生成，实现了一个通用的数据库微服务的能力。
+This project provides a complete and production-ready database microservice. It is built using `gRPCity` and `sequelize`, offering full data CRUD capabilities to empower the BFF layer.
+One highlight of this project is the **code generation** feature, which supports code generation in three locations: `model`, `proto`, `handler`, and `test`. In other words, the project can generate code step by step based on the `table sql`, achieving a generic database microservice capability.
 
-针对数据库单独抽出来做成微服务的原因如下：
-- 独立性，可以针对性做监控、优化和安全；
-- 易用性，换数据库或做成读写分离更容易；
-- 一致性，数据处理集中，保证数据质量；
+Separating the database into a standalone microservice is a common business architecture optimization measure. The reasons for doing so are as follows:
 
-如果各微服务都集成数据库，尤其是都使用同一个数据库进行集成的情况下，会带来数据管理上的混乱，容易发生 conflict，降低效率和安全性。
+- **Independence**: It allows targeted monitoring, optimization, and security measures.
+- **Usability**: Switching databases or implementing read/write separation becomes easier.
+- **Consistency**: Data processing is centralized, ensuring data quality.
 
-## 你能学到什么?
+If each microservice integrates its own database, especially when they all use the same database for integration, it can lead to confusion in data management, conflicts, and a decrease in efficiency and security.
 
-- 你能学到一个完整的 gRPC 数据库微服务的代码结构；
-- 你能学到详尽的 `gRPCity` 库的 server 用法；
-- 你能学到 `sequelize` 的用法；
-- 你能学到如何利用代码生成的方式，方便我们快速接入数据库微服务；
-- 你能学到通用 CRUD RPC 接口的是如何设计的；
-- 你能学到复杂查询如何设计；
+## What will you learn?
 
-## 项目指南
+If you are interested in using the `gRPCity` library for production purposes, this project is highly recommended for you to read and learn from because:
 
-### 特点汇总
+- You will learn the complete code structure of a gRPC database microservice.
+- You will learn the detailed usage of the `gRPCity` library for server implementation.
+- You will learn how to use `sequelize`.
+- You will learn how to quickly integrate a database microservice using code generation.
+- You will learn how the common CRUD RPC interfaces are designed.
+- You will learn how to design complex queries.
 
-1. 使用 standard.js 作为编码格式规范；
-3. 使用 Nodemon 开发，使用 PM2 用于生产运行；
-4. 使用 pnpm 作为包管理器；
-5. 使用 Node.js 原生 ESM 作为模块管理；
-6. 使用 pino 作为日志工具；
-7. 使用 ava 作为测试工具；
-8. 使用 sequelize 作为 MySQL 数据库 ORM 驱动；
-9. 使用 grpcity 作为 grpc 微服务框架；
+## Project Guide
 
-### 目录安排
+### Key Features
 
-目录 | 功能
+- Well-structured and organized `proto` directory.
+- Comprehensive CRUD RPCs with support for logical deletion to prevent data loss caused by accidental deletion.
+- Easy interface maintenance by only needing to maintain the `table sql` and using code generation.
+- Filter message query design with support for logical operators (AND, OR), fuzzy queries, and more.
+- All RPC interfaces support end-to-end testing.
+
+### Directory Structure
+
+Directory | Function
 --- | ---
-bin | 应用入口
-src | 主要代码
-test | 测试代码
-pm2 | pm2 执行代码
-protos | proto 代码
+bin | Application entry point
+src | Main code
+test | Test code
+pm2 | Execution code for PM2
+protos | Proto code
 
-目录 | 功能 | 例子
+Directory | Function | Example
 --- | --- | ---
-src/app.js | 主程序入口 | 模块初始化和服务启动
-src/config | 配置文件 | development.js
-src/lib | 底层组件 | logger.js
-src/model | 数据模型 | User.js
-src/handler | gRPC 处理器 | userHandler.js
-src/middleware | server 中间件 | rpcLog.js
-src/util | 无状态工具库 | time.js
+src/app.js | Main program entry | Module initialization and server startup
+src/config | Configuration files | development.js
+src/lib | Low-level components | logger.js
+src/model | Data models | User.js
+src/handler | gRPC handlers | userHandler.js
+src/middleware | Server middleware | rpcLog.js
+src/util | Stateless utility library | time.js
 
-## 运行
+### Dependency Summary
 
-### 配置数据库
+1. Uses standard.js as the coding style guide.
+2. Uses Nodemon for development and PM2 for production runtime.
+3. Uses pnpm as the package manager.
+4. Uses native Node.js ESM for module management.
+5. Uses pino as the logging tool.
+6. Uses ava as the testing tool.
+7. Uses sequelize as the MySQL database ORM driver.
+8. Uses grpcity as the gRPC microservice framework.
 
-有两处地方的数据库需要配置，分别是`src/config` 和 `tools/mysql.config.js`，需要写入你的可用数据库信息，目前只支持 MySQL。请自行修改。
+## Running
 
-修改完数据库配置后，执行下面命令，创建数据表：
+### Configure the Database
+
+There are two places where the database needs to be configured: `src/config` and `tools/mysql.config.js`. You need to provide your own database information. Currently, only MySQL is supported. Please modify accordingly.
+
+After configuring the database, execute the following command to create the database tables:
+
 ```sh
 pnpm gen-table
 ```
 
-### 安装依赖
+### Install Dependencies
 
 ```sh
 pnpm i
 ```
 
-### 启动服务
+### Start the Service
 
 ```sh
 pnpm dev
 ```
 
-### e2e 测试
+### E2E Test
 
-启动之后，需要跑一次 e2e 测试，如果测试没有报错，同时也能在数据库看到有遗留的测试数据，就说明项目全部跑通。
+After starting the service, run the e2e tests. If the tests pass without errors and you can see test data in the database, it means the project is running correctly.
 
 ```sh
 pnpm test
 ```
 
-## 代码生成
+## Code Generation
 
-本项目支持根据 `create table sql` 的内容进行代码生成，减轻开发负担。适合项目新启动或新数据表创建的场景。
+This project supports code generation based on the content of the `table sql`, reducing development efforts. It is suitable for scenarios where a project is newly started or new data tables are created.
 
-### 生成 model
+The `table sql` files are stored in the `tools/sql` directory, and the code generation scripts are located in the `tools` directory.
+
+### Generate Model
+
+Execute the following command to see the updated code in the `src/model` directory.
 
 ```sh
 pnpm gen-model
 ```
 
-### 生成 proto
+### Generate Proto
+
+Execute the following command to see the updated code in the `protos` directory.
 
 ```sh
 pnpm gen-proto
 ```
 
-### 生成 handler
+### Generate Handler
+
+Execute the following command to see the updated code in the `src/handler` directory.
 
 ```sh
 pnpm gen-handler
 ```
 
-### 生成 test
+### Generate Test
+
+Execute the following command to see the updated code in the `test` directory.
 
 ```sh
 pnpm gen-test
 ```
 
-### 代码格式化
+### Code Format
 
-跑完所有代码生成之后，我们还要执行一次代码格式化。
+After running all code generation commands, execute the following command to format the code.
 
 ```sh
 pnpm fix
 ```
 
-### License
+---
+
+Please read the code yourself for more details and for learning and exploration. Practice is the best way, and I strongly recommend downloading this project locally to try it out more.
+
+## License
 
 Released under the MIT License.

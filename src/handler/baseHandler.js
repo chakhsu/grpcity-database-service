@@ -38,8 +38,8 @@ class BaseHandler {
   }
 
   // 默认：返回结果不包含 isDelete 字段
-  // 默认：返回结果排序按 updateTime 降序
-  // 默认：返回结果最大数 limit 10
+  // 默认：返回结果排序按 updateTime 进行降序 desc
+  // 默认：返回结果最大条目数 limit 10
   async search (call) {
     const { filter, order = {}, pagination = {} } = call.request
     assert(filter, 'baseHandler search() parmas no filter')

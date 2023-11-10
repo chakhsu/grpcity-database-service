@@ -1,8 +1,8 @@
-## 数据库微服务 proto 和 rpc 定义及使用
+## Microservice Proto and RPC Definitions and Usage
 
-### 目录结构
+### Directory Structure
 
-```
+```markdown
 └── services
     ├── collection
     │   ├── UserDB.proto
@@ -13,69 +13,71 @@
     ├── database-service.proto
 ```
 
-|目录|描述|
-|:---|:---|
-|services/model|数据模型实体 message 定义，例如 Group message |
-|services/collection|数据模型的操作实例，给 DB service 提供 CURD RPC proto 定义|
-|services|存放各类微服务的 RPC proto 定义|
+| Directory            | Description                                                 |
+| :------------------- | :---------------------------------------------------------- |
+| services/model       | Defines data model entity messages (e.g., Group message)     |
+| services/collection  | Provides CRUD RPC proto definitions for data model operations |
+| services             | Stores RPC proto definitions for various microservices       |
 
-### 引用逻辑
+### Referencing Logic
 
-model 里的 message 定义能被所有微服务 rpc 引用，其中 collection 也是微服务 rpc，但是需要被整合到 database-service 中，所以这里看起来会多一个链块，实际上没有区别.
+Message definitions in the "model" directory can be referenced by all microservices' RPCs. The "collection" directory is also an RPC for microservices but needs to be integrated into the "database-service." Therefore, it appears as an additional link, but there is no actual difference.
 
 `model/User.proto` --> `collection/UserDB.proto` --> `service/database-service`
 
-`model/User.prorp` -->  `service/user-service`
+`model/User.proto` --> `service/user-service`
 
-这样设计的好处：
-- 命名清晰，model 是公共的message定义，collection 又能清晰表达数据库表集合的含义
-- 服务分层设计后，微服务之间的消息内转是用到了同一个message，保证了效率，同时，引用是单向的，没有回环
+Benefits of this design:
+- Clear naming: "model" contains shared message definitions, while "collection" clearly expresses the meaning of the database table collections.
+- With a layered service design, the same message is used for message passing between microservices, ensuring efficiency. Additionally, the references are unidirectional, without any loops.
 
-## 命名指南
+## Naming Guidelines
 
-**message 的命名规则如下：**
+**Message naming conventions are as follows:**
 
-- message name 使用 `PascalCase`，即首字母大写的帕斯卡命名法
-- field name 使用`pascalCase`，即首字母小写的帕斯卡命名法
+- Message names use `PascalCase`, i.e., Pascal case with the initial letter capitalized.
+- Field names use `pascalCase`, i.e., Pascal case with the initial letter lowercase.
 
-如下所示：
-```
+Example:
+```proto
 message SongServerRequest {
   optional string song_name = 1;
 }
 ```
 
-**rpc 的命名规则如下**：
+**RPC naming conventions are as follows:**
 
-- servce name 使用 `PascalCase`
-- rpc name 使用 `PascalCase`
-- rpc method 使用 `PascalCase`
+- Service names use `PascalCase`.
+- RPC names use `PascalCase`.
+- RPC methods use `PascalCase`.
 
-```
+Example:
+```proto
 service HostService {
   rpc Create(CreateRequest) returns (CreateResponse) {}
 }
 ```
-**文件名命名规则如下：**
 
-如目录所示那样
+**File naming conventions are as follows:**
 
-- service rpc proto 使用`kebab-case`, 即全小写的串行命名法
-- collection rpc proto 使用`PascalCase` + `DB`
-- model message proto 使用 `PascalCase`
+As shown in the directory structure:
 
-## 代码风格校验
+- Service RPC protos use `kebab-case`, i.e., all lowercase with hyphens.
+- Collection RPC protos use `PascalCase` + `DB`.
+- Model message protos use `PascalCase`.
 
-使用 `clang-format` 工具进行 proto 代码风格校验
+## Code Style Validation
 
-安装步骤：
+Use the `clang-format` tool to validate the code style of protos.
 
-1、macOS
-```
+Installation steps:
+
+1. macOS
+```shell
 brew install clang-format
 ```
 
-2、vscode
-安装`vscode-proto3`扩展
+2. VSCode
+Install the `vscode-proto3` extension.
 
-这样就可以直接使用 `clang-format` 进行代码格式的统一。
+This way, you can directly use `clang-format` to ensure consistent code formatting.
