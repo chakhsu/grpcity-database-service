@@ -11,22 +11,22 @@ class App {
     await this.initMysql()
     await this.initGrpc()
 
-    await this.startGrpcServer()
+    await this.startServer()
   }
 
   async initMysql () {
     const { database, username, password, detailOptions } = this._options.mysql
     mysql.init({ database, username, password, detailOptions })
-    logger.info({ database }, 'mysql.init finish.')
+    logger.info('mysql.init finish.')
   }
 
   async initGrpc () {
     const { isDev, packagePrefix, services } = this._options.grpc
     await grpc.init({ services, isDev, packagePrefix })
-    logger.info({ packagePrefix }, 'grpc.init finish.')
+    logger.info('grpc.init finish.')
   }
 
-  async startGrpcServer () {
+  async startServer () {
     const { host, port } = this._options.grpc
 
     const server = grpc.initServer()
@@ -35,7 +35,7 @@ class App {
     handler.init(server)
 
     await server.listen({ host, port })
-    logger.info(`grpc server is started at ${host}:${port}`)
+    logger.info(`gRPC Server is started at ${host}:${port}`)
   }
 }
 
