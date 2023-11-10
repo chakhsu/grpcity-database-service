@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "NODE_ENV=development nodemon --trace-warnings ./bin/server.js",
     "test": "ava",
-    "fix": "standard --fix 'src/**/*.js' 'test/**/*.js'",
-    "lint": "standard -v 'src/**/*.js' 'test/**/*.js' | snazzy",
+    "fix": "standard --fix 'src/**/*.js' 'test/**/*.js' 'tools/**/*.js'",
+    "lint": "standard -v 'src/**/*.js' 'test/**/*.js 'tools/**/*.js'' | snazzy",
     "model": "node ./tools/model-auto-gen.js"
   },
   "author": "Chakhsu.Lau",
@@ -26,7 +26,10 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "grpcity": "^0.9.5",
+    "lodash-es": "^4.17.21",
     "mysql2": "^3.6.3",
+    "pino": "^8.16.1",
+    "pino-pretty": "^10.2.3",
     "sequelize": "^6.34.0"
   },
   "devDependencies": {

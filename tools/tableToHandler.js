@@ -42,7 +42,7 @@ export default new ${_.upperFirst(name)}Handler()
   const protoDict = '../src/handler'
 
   let initImportData = ''
-  let initClassData = `class Handler {\n  init (server) {\n`
+  let initClassData = 'class Handler {\n  init (server) {\n'
 
   await Promise.map(fileNames, async (fileName) => {
     initImportData += `import ${fileName}Handler from './${fileName}Handler.js'\n`

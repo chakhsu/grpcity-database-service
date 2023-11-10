@@ -18,7 +18,7 @@ const convertSqlToModelProto = (sql, importString) => {
   const tableName = matches[1]
   const fieldDefinitions = matches[2].trim().split('\n')
 
-  let messageDefinition = `syntax = "proto3";\n\n`
+  let messageDefinition = 'syntax = "proto3";\n\n'
 
   messageDefinition += `${importString}\n\n`
 
