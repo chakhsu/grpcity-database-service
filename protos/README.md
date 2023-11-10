@@ -5,11 +5,11 @@
 ```
 └── services
     ├── collection
-    │   ├── HostDB.proto
-    │   └── GroupDB.proto
+    │   ├── UserDB.proto
+    │   └── RoleDB.proto
     ├── model
-    │   ├── Host.proto
-    │   └── Group.proto
+    │   ├── User.proto
+    │   └── Role.proto
     ├── database-service.proto
 ```
 
@@ -23,9 +23,9 @@
 
 model 里的 message 定义能被所有微服务 rpc 引用，其中 collection 也是微服务 rpc，但是需要被整合到 database-service 中，所以这里看起来会多一个链块，实际上没有区别.
 
-`model/Host.proto` --> `collection/HostDB.proto` --> `service/database-service`
+`model/User.proto` --> `collection/UserDB.proto` --> `service/database-service`
 
-`model/Host.prorp` -->  `service/Host-service`
+`model/User.prorp` -->  `service/user-service`
 
 这样设计的好处：
 - 命名清晰，model 是公共的message定义，collection 又能清晰表达数据库表集合的含义
@@ -66,7 +66,7 @@ service HostService {
 
 ## 代码风格校验
 
-使用 clang-format 工具进行 proto 代码风格校验
+使用 `clang-format` 工具进行 proto 代码风格校验
 
 安装步骤：
 
@@ -78,10 +78,4 @@ brew install clang-format
 2、vscode
 安装`vscode-proto3`扩展
 
-这样就可以直接使用clang-format进行代码格式的统一。
-
-## 参考
-
-- https://pantao.gitbooks.io/api-design-guide/content/
-- https://go-kratos.dev/docs/guide/api-protobuf/
-- https://protobuf.dev/programming-guides/style/
+这样就可以直接使用 `clang-format` 进行代码格式的统一。
