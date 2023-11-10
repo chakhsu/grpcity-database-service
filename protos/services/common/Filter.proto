@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package services.common;
+
+message Filter {
+  message Term {
+    string key                  = 1;
+    repeated string stringValue = 2;
+    repeated int32 numberValue  = 3;
+    string stringLike           = 4;
+  }
+
+  message Range {
+    string key = 1;
+    string eq  = 2;
+    string ne  = 3;
+    string gt  = 4;
+    string gte = 5;
+    string lt  = 6;
+    string lte = 7;
+  }
+
+  // 与
+  message And {
+    repeated Term term   = 1;
+    repeated Range range = 2;
+  }
+
+  // 或
+  message Or {
+    repeated Term term   = 1;
+    repeated Range range = 2;
+  }
+
+  // 与或非：复杂过滤
+  And and = 1;
+  Or or   = 2;
+
+  // 默认：简单过滤
+  repeated Term term   = 3;
+  repeated Range range = 4;
+}

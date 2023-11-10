@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package services.model;
+
+message Message {
+  int32 id = 1;
+  string title = 2;
+  string content = 3;
+  bool isRead = 4;
+  int32 oplogId = 5;
+  int32 userId = 6;
+  string createTime = 7;
+  string updateTime = 8;
+  bool isDelete = 9;
+  string appName = 10;
+}

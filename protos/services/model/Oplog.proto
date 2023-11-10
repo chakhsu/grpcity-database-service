@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package services.model;
+
+message Oplog {
+  int32 id = 1;
+  string operatorIp = 2;
+  string operator = 3;
+  string operatePage = 4;
+  string operateType = 5;
+  string targetType = 6;
+  string target = 7;
+  string operationMethods = 8;
+  string detail = 9;
+  string createTime = 10;
+  string updateTime = 11;
+  bool isDelete = 12;
+  string appName = 13;
+}

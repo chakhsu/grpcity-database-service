@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package services.collection;
+
+import "services/common/Filter.proto";
+import "services/common/Request.proto";
+import "services/common/Response.proto";
+
+import "services/model/Message.proto";
+
+service MessageDB {
+  rpc CreateOne(CreateOneMessageRequest)
+      returns (services.common.IdResponse) {}
+  rpc BulkCreate(BulkCreateMessageRequest)
+      returns (services.common.RepeatedIdResponses) {}
+
+  rpc SearchById(services.common.IdRequest)
+      returns (SearchByIdMessageResponse) {}
+  rpc Search(services.common.SearchRequest)
+      returns (SearchMessageResponse) {}
+
+  rpc UpdateById(UpdateByIdMessageRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Update(UpdateMessageRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+
+  rpc DeleteById(services.common.IdRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Delete(services.common.FilterRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+}
+
+message CreateOneMessageRequest {
+  services.model.Message message = 1;
+}
+
+message BulkCreateMessageRequest {
+  repeated services.model.Message message = 1;
+}
+
+message SearchByIdMessageResponse {
+  services.model.Message message = 1;
+}
+
+message SearchMessageResponse {
+  int32 total = 1;
+  repeated services.model.Message list = 2;
+}
+
+message UpdateByIdMessageRequest {
+  string id = 1;
+  services.model.Message message = 2;
+}
+
+message UpdateMessageRequest {
+  services.model.Message message = 1;
+  services.common.Filter filter = 2;
+}

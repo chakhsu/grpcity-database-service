@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package services.model;
+
+message Permission {
+  int32 id = 1;
+  string permissionName = 2;
+  int32 parentId = 3;
+  bool leaf = 4;
+  bool level = 5;
+  string description = 6;
+  string createTime = 7;
+  string updateTime = 8;
+  bool isDelete = 9;
+  string appName = 10;
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package services.common;
+
+import "services/common/Pagination.proto";
+import "services/common/Filter.proto";
+import "services/common/Order.proto";
+
+message IdRequest {
+  string id = 1;
+}
+
+message SearchRequest {
+  common.Filter filter         = 1;
+  common.Order order           = 2;
+  common.Pagination pagination = 3;
+}
+
+message FilterRequest {
+  common.Filter filter = 1;
+}

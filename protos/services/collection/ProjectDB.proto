@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package services.collection;
+
+import "services/common/Filter.proto";
+import "services/common/Request.proto";
+import "services/common/Response.proto";
+
+import "services/model/Project.proto";
+
+service ProjectDB {
+  rpc CreateOne(CreateOneProjectRequest)
+      returns (services.common.IdResponse) {}
+  rpc BulkCreate(BulkCreateProjectRequest)
+      returns (services.common.RepeatedIdResponses) {}
+
+  rpc SearchById(services.common.IdRequest)
+      returns (SearchByIdProjectResponse) {}
+  rpc Search(services.common.SearchRequest)
+      returns (SearchProjectResponse) {}
+
+  rpc UpdateById(UpdateByIdProjectRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Update(UpdateProjectRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+
+  rpc DeleteById(services.common.IdRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Delete(services.common.FilterRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+}
+
+message CreateOneProjectRequest {
+  services.model.Project project = 1;
+}
+
+message BulkCreateProjectRequest {
+  repeated services.model.Project project = 1;
+}
+
+message SearchByIdProjectResponse {
+  services.model.Project project = 1;
+}
+
+message SearchProjectResponse {
+  int32 total = 1;
+  repeated services.model.Project list = 2;
+}
+
+message UpdateByIdProjectRequest {
+  string id = 1;
+  services.model.Project project = 2;
+}
+
+message UpdateProjectRequest {
+  services.model.Project project = 1;
+  services.common.Filter filter = 2;
+}

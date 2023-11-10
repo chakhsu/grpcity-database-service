@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "services/collection/UserDB.proto";
+import "services/collection/UserRoleDB.proto";
+import "services/collection/RoleDB.proto";
+import "services/collection/PermissionDB.proto";
+import "services/collection/RolePermissionDB.proto";
+import "services/collection/UserProjectDB.proto";
+import "services/collection/ProjectDB.proto";
+import "services/collection/MessageDB.proto";
+import "services/collection/OplogDB.proto";
+import "services/collection/TeamDB.proto";

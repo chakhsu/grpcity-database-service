@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package services.model;
+
+message Role {
+  int32 id = 1;
+  string roleCode = 2;
+  string roleName = 3;
+  string description = 4;
+  string lastReviser = 5;
+  string createTime = 6;
+  string updateTime = 7;
+  bool isDelete = 8;
+  string appName = 9;
+}

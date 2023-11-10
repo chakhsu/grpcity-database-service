@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package services.model;
+
+message User {
+  int32 id = 1;
+  string userName = 2;
+  string pw = 3;
+  string salt = 4;
+  string realName = 5;
+  string phone = 6;
+  string email = 7;
+  int32 teamId = 8;
+  bool isDelete = 9;
+  string createTime = 10;
+  string updateTime = 11;
+  string appName = 12;
+}

@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package services.collection;
+
+import "services/common/Filter.proto";
+import "services/common/Request.proto";
+import "services/common/Response.proto";
+
+import "services/model/Permission.proto";
+
+service PermissionDB {
+  rpc CreateOne(CreateOnePermissionRequest)
+      returns (services.common.IdResponse) {}
+  rpc BulkCreate(BulkCreatePermissionRequest)
+      returns (services.common.RepeatedIdResponses) {}
+
+  rpc SearchById(services.common.IdRequest)
+      returns (SearchByIdPermissionResponse) {}
+  rpc Search(services.common.SearchRequest)
+      returns (SearchPermissionResponse) {}
+
+  rpc UpdateById(UpdateByIdPermissionRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Update(UpdatePermissionRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+
+  rpc DeleteById(services.common.IdRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Delete(services.common.FilterRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+}
+
+message CreateOnePermissionRequest {
+  services.model.Permission permission = 1;
+}
+
+message BulkCreatePermissionRequest {
+  repeated services.model.Permission permission = 1;
+}
+
+message SearchByIdPermissionResponse {
+  services.model.Permission permission = 1;
+}
+
+message SearchPermissionResponse {
+  int32 total = 1;
+  repeated services.model.Permission list = 2;
+}
+
+message UpdateByIdPermissionRequest {
+  string id = 1;
+  services.model.Permission permission = 2;
+}
+
+message UpdatePermissionRequest {
+  services.model.Permission permission = 1;
+  services.common.Filter filter = 2;
+}

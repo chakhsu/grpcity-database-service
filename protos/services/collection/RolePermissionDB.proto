@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package services.collection;
+
+import "services/common/Filter.proto";
+import "services/common/Request.proto";
+import "services/common/Response.proto";
+
+import "services/model/RolePermission.proto";
+
+service RolePermissionDB {
+  rpc CreateOne(CreateOneRolePermissionRequest)
+      returns (services.common.IdResponse) {}
+  rpc BulkCreate(BulkCreateRolePermissionRequest)
+      returns (services.common.RepeatedIdResponses) {}
+
+  rpc SearchById(services.common.IdRequest)
+      returns (SearchByIdRolePermissionResponse) {}
+  rpc Search(services.common.SearchRequest)
+      returns (SearchRolePermissionResponse) {}
+
+  rpc UpdateById(UpdateByIdRolePermissionRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Update(UpdateRolePermissionRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+
+  rpc DeleteById(services.common.IdRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Delete(services.common.FilterRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+}
+
+message CreateOneRolePermissionRequest {
+  services.model.RolePermission rolePermission = 1;
+}
+
+message BulkCreateRolePermissionRequest {
+  repeated services.model.RolePermission rolePermission = 1;
+}
+
+message SearchByIdRolePermissionResponse {
+  services.model.RolePermission rolePermission = 1;
+}
+
+message SearchRolePermissionResponse {
+  int32 total = 1;
+  repeated services.model.RolePermission list = 2;
+}
+
+message UpdateByIdRolePermissionRequest {
+  string id = 1;
+  services.model.RolePermission rolePermission = 2;
+}
+
+message UpdateRolePermissionRequest {
+  services.model.RolePermission rolePermission = 1;
+  services.common.Filter filter = 2;
+}

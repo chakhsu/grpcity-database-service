@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package services.model;
+
+message Project {
+  int32 id = 1;
+  string projectCode = 2;
+  string projectName = 3;
+  string description = 4;
+  int32 teamId = 5;
+  bool running = 6;
+  string createTime = 7;
+  string updateTime = 8;
+  bool isDelete = 9;
+  string appName = 10;
+}

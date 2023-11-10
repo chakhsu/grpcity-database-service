@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package services.collection;
+
+import "services/common/Filter.proto";
+import "services/common/Request.proto";
+import "services/common/Response.proto";
+
+import "services/model/UserProject.proto";
+
+service UserProjectDB {
+  rpc CreateOne(CreateOneUserProjectRequest)
+      returns (services.common.IdResponse) {}
+  rpc BulkCreate(BulkCreateUserProjectRequest)
+      returns (services.common.RepeatedIdResponses) {}
+
+  rpc SearchById(services.common.IdRequest)
+      returns (SearchByIdUserProjectResponse) {}
+  rpc Search(services.common.SearchRequest)
+      returns (SearchUserProjectResponse) {}
+
+  rpc UpdateById(UpdateByIdUserProjectRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Update(UpdateUserProjectRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+
+  rpc DeleteById(services.common.IdRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Delete(services.common.FilterRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+}
+
+message CreateOneUserProjectRequest {
+  services.model.UserProject userProject = 1;
+}
+
+message BulkCreateUserProjectRequest {
+  repeated services.model.UserProject userProject = 1;
+}
+
+message SearchByIdUserProjectResponse {
+  services.model.UserProject userProject = 1;
+}
+
+message SearchUserProjectResponse {
+  int32 total = 1;
+  repeated services.model.UserProject list = 2;
+}
+
+message UpdateByIdUserProjectRequest {
+  string id = 1;
+  services.model.UserProject userProject = 2;
+}
+
+message UpdateUserProjectRequest {
+  services.model.UserProject userProject = 1;
+  services.common.Filter filter = 2;
+}

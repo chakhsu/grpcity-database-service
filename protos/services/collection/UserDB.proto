@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package services.collection;
+
+import "services/common/Filter.proto";
+import "services/common/Request.proto";
+import "services/common/Response.proto";
+
+import "services/model/User.proto";
+
+service UserDB {
+  rpc CreateOne(CreateOneUserRequest)
+      returns (services.common.IdResponse) {}
+  rpc BulkCreate(BulkCreateUserRequest)
+      returns (services.common.RepeatedIdResponses) {}
+
+  rpc SearchById(services.common.IdRequest)
+      returns (SearchByIdUserResponse) {}
+  rpc Search(services.common.SearchRequest)
+      returns (SearchUserResponse) {}
+
+  rpc UpdateById(UpdateByIdUserRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Update(UpdateUserRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+
+  rpc DeleteById(services.common.IdRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Delete(services.common.FilterRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+}
+
+message CreateOneUserRequest {
+  services.model.User user = 1;
+}
+
+message BulkCreateUserRequest {
+  repeated services.model.User user = 1;
+}
+
+message SearchByIdUserResponse {
+  services.model.User user = 1;
+}
+
+message SearchUserResponse {
+  int32 total = 1;
+  repeated services.model.User list = 2;
+}
+
+message UpdateByIdUserRequest {
+  string id = 1;
+  services.model.User user = 2;
+}
+
+message UpdateUserRequest {
+  services.model.User user = 1;
+  services.common.Filter filter = 2;
+}

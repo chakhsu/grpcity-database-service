@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package services.collection;
+
+import "services/common/Filter.proto";
+import "services/common/Request.proto";
+import "services/common/Response.proto";
+
+import "services/model/Oplog.proto";
+
+service OplogDB {
+  rpc CreateOne(CreateOneOplogRequest)
+      returns (services.common.IdResponse) {}
+  rpc BulkCreate(BulkCreateOplogRequest)
+      returns (services.common.RepeatedIdResponses) {}
+
+  rpc SearchById(services.common.IdRequest)
+      returns (SearchByIdOplogResponse) {}
+  rpc Search(services.common.SearchRequest)
+      returns (SearchOplogResponse) {}
+
+  rpc UpdateById(UpdateByIdOplogRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Update(UpdateOplogRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+
+  rpc DeleteById(services.common.IdRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Delete(services.common.FilterRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+}
+
+message CreateOneOplogRequest {
+  services.model.Oplog oplog = 1;
+}
+
+message BulkCreateOplogRequest {
+  repeated services.model.Oplog oplog = 1;
+}
+
+message SearchByIdOplogResponse {
+  services.model.Oplog oplog = 1;
+}
+
+message SearchOplogResponse {
+  int32 total = 1;
+  repeated services.model.Oplog list = 2;
+}
+
+message UpdateByIdOplogRequest {
+  string id = 1;
+  services.model.Oplog oplog = 2;
+}
+
+message UpdateOplogRequest {
+  services.model.Oplog oplog = 1;
+  services.common.Filter filter = 2;
+}

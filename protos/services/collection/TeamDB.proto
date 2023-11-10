@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package services.collection;
+
+import "services/common/Filter.proto";
+import "services/common/Request.proto";
+import "services/common/Response.proto";
+
+import "services/model/Team.proto";
+
+service TeamDB {
+  rpc CreateOne(CreateOneTeamRequest)
+      returns (services.common.IdResponse) {}
+  rpc BulkCreate(BulkCreateTeamRequest)
+      returns (services.common.RepeatedIdResponses) {}
+
+  rpc SearchById(services.common.IdRequest)
+      returns (SearchByIdTeamResponse) {}
+  rpc Search(services.common.SearchRequest)
+      returns (SearchTeamResponse) {}
+
+  rpc UpdateById(UpdateByIdTeamRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Update(UpdateTeamRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+
+  rpc DeleteById(services.common.IdRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Delete(services.common.FilterRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+}
+
+message CreateOneTeamRequest {
+  services.model.Team team = 1;
+}
+
+message BulkCreateTeamRequest {
+  repeated services.model.Team team = 1;
+}
+
+message SearchByIdTeamResponse {
+  services.model.Team team = 1;
+}
+
+message SearchTeamResponse {
+  int32 total = 1;
+  repeated services.model.Team list = 2;
+}
+
+message UpdateByIdTeamRequest {
+  string id = 1;
+  services.model.Team team = 2;
+}
+
+message UpdateTeamRequest {
+  services.model.Team team = 1;
+  services.common.Filter filter = 2;
+}

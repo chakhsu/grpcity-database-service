@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package services.collection;
+
+import "services/common/Filter.proto";
+import "services/common/Request.proto";
+import "services/common/Response.proto";
+
+import "services/model/UserRole.proto";
+
+service UserRoleDB {
+  rpc CreateOne(CreateOneUserRoleRequest)
+      returns (services.common.IdResponse) {}
+  rpc BulkCreate(BulkCreateUserRoleRequest)
+      returns (services.common.RepeatedIdResponses) {}
+
+  rpc SearchById(services.common.IdRequest)
+      returns (SearchByIdUserRoleResponse) {}
+  rpc Search(services.common.SearchRequest)
+      returns (SearchUserRoleResponse) {}
+
+  rpc UpdateById(UpdateByIdUserRoleRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Update(UpdateUserRoleRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+
+  rpc DeleteById(services.common.IdRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Delete(services.common.FilterRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+}
+
+message CreateOneUserRoleRequest {
+  services.model.UserRole userRole = 1;
+}
+
+message BulkCreateUserRoleRequest {
+  repeated services.model.UserRole userRole = 1;
+}
+
+message SearchByIdUserRoleResponse {
+  services.model.UserRole userRole = 1;
+}
+
+message SearchUserRoleResponse {
+  int32 total = 1;
+  repeated services.model.UserRole list = 2;
+}
+
+message UpdateByIdUserRoleRequest {
+  string id = 1;
+  services.model.UserRole userRole = 2;
+}
+
+message UpdateUserRoleRequest {
+  services.model.UserRole userRole = 1;
+  services.common.Filter filter = 2;
+}

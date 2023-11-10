@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package services.common;
+
+message IdResponse {
+  string id = 1;
+}
+
+message RepeatedIdResponses {
+  repeated string id = 1;
+}
+
+message AffectedRowCountResponse {
+  int32 affectedRowCount = 1;
+}
+
+message JSONStringResponse {
+  string jsonString = 1;
+}

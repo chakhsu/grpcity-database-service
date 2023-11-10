@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package services.common;
+
+message Order {
+  string field = 1;
+  string sort  = 2;  // DESC ASC
+}

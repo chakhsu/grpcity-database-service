@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package services.collection;
+
+import "services/common/Filter.proto";
+import "services/common/Request.proto";
+import "services/common/Response.proto";
+
+import "services/model/Role.proto";
+
+service RoleDB {
+  rpc CreateOne(CreateOneRoleRequest)
+      returns (services.common.IdResponse) {}
+  rpc BulkCreate(BulkCreateRoleRequest)
+      returns (services.common.RepeatedIdResponses) {}
+
+  rpc SearchById(services.common.IdRequest)
+      returns (SearchByIdRoleResponse) {}
+  rpc Search(services.common.SearchRequest)
+      returns (SearchRoleResponse) {}
+
+  rpc UpdateById(UpdateByIdRoleRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Update(UpdateRoleRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+
+  rpc DeleteById(services.common.IdRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+  rpc Delete(services.common.FilterRequest)
+      returns (services.common.AffectedRowCountResponse) {}
+}
+
+message CreateOneRoleRequest {
+  services.model.Role role = 1;
+}
+
+message BulkCreateRoleRequest {
+  repeated services.model.Role role = 1;
+}
+
+message SearchByIdRoleResponse {
+  services.model.Role role = 1;
+}
+
+message SearchRoleResponse {
+  int32 total = 1;
+  repeated services.model.Role list = 2;
+}
+
+message UpdateByIdRoleRequest {
+  string id = 1;
+  services.model.Role role = 2;
+}
+
+message UpdateRoleRequest {
+  services.model.Role role = 1;
+  services.common.Filter filter = 2;
+}

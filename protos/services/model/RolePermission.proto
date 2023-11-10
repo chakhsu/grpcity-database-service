@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package services.model;
+
+message RolePermission {
+  int32 id = 1;
+  int32 roleId = 2;
+  int32 permissionId = 3;
+  string createTime = 4;
+  string updateTime = 5;
+  bool isDelete = 6;
+  string appName = 7;
+}
