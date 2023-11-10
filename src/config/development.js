@@ -14,16 +14,17 @@ export default {
     host: '0.0.0.0',
     port: 10051,
     services: {
-      'services.collection.UserDB': '0.0.0.0:10051', // for test
-      'services.collection.UserRoleDB': '0.0.0.0:10051', // for test
-      'services.collection.RoleDB': '0.0.0.0:10051', // for test
-      'services.collection.PermissionDB': '0.0.0.0:10051', // for test
-      'services.collection.RolePermissionDB': '0.0.0.0:10051', // for test
-      'services.collection.ProjectDB': '0.0.0.0:10051', // for test
-      'services.collection.UserProjectDB': '0.0.0.0:10051', // for test
-      'services.collection.TeamDB': '0.0.0.0:10051', // for test
-      'services.collection.MessageDB': '0.0.0.0:10051', // for test
-      'services.collection.OplogDB': '0.0.0.0:10051' // for test
+      // all for e2e test
+      'services.collection.UserDB': '0.0.0.0:10051',
+      'services.collection.UserRoleDB': '0.0.0.0:10051',
+      'services.collection.RoleDB': '0.0.0.0:10051',
+      'services.collection.PermissionDB': '0.0.0.0:10051',
+      'services.collection.RolePermissionDB': '0.0.0.0:10051',
+      'services.collection.ProjectDB': '0.0.0.0:10051',
+      'services.collection.UserProjectDB': '0.0.0.0:10051',
+      'services.collection.TeamDB': '0.0.0.0:10051',
+      'services.collection.MessageDB': '0.0.0.0:10051',
+      'services.collection.OplogDB': '0.0.0.0:10051'
     }
   },
   mysql: {

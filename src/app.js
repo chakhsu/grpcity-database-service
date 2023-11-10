@@ -36,6 +36,13 @@ class App {
 
     await server.listen({ host, port })
     logger.info(`gRPC Server is started at ${host}:${port}`)
+
+    process.on('unhandledRejection', async (err, promise) => {
+      logger.error('unhandledRejection', { err, promise, stack: err.stack })
+      await server.shutdown()
+
+      process.exit()
+    })
   }
 }
 

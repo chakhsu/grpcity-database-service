@@ -1,5 +1,5 @@
 {
-  "name": "database-service",
+  "name": "grpcity-database-service",
   "version": "1.0.0",
   "description": "Database Service: a production-ready database microservice based on gRPCity.",
   "main": "index.js",
@@ -9,7 +9,10 @@
     "test": "ava",
     "fix": "standard --fix 'src/**/*.js' 'test/**/*.js' 'tools/**/*.js'",
     "lint": "standard -v 'src/**/*.js' 'test/**/*.js 'tools/**/*.js'' | snazzy",
-    "model": "node ./tools/model-auto-gen.js"
+    "gen-model": "node ./tools/tableToModel.js",
+    "gen-proto": "node ./tools/tableToProto.js",
+    "gen-handler": "node ./tools/tableToHandler.js",
+    "gen-test": "node ./tools/tableToTest.js"
   },
   "author": "Chakhsu.Lau",
   "license": "MIT",
