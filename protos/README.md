@@ -1,5 +1,7 @@
 ## Microservice Proto and RPC Definitions and Usage
 
+[English](./README.md) | [简体中文](./README_CN.md)
+
 ### Directory Structure
 
 ```markdown

@@ -1,5 +1,7 @@
 ## 微服务 proto 和 rpc 定义及使用
 
+[English](./README.md) | [简体中文](./README_CN.md)
+
 ### 目录结构
 
 ```

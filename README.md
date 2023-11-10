@@ -1,5 +1,7 @@
 # Database Service
 
+[English](./README.md) | [简体中文](./README_CN.md)
+
 This project provides a complete and production-ready database microservice. It is built using `gRPCity` and `sequelize`, offering full data CRUD capabilities to empower the BFF layer.
 One highlight of this project is the **code generation** feature, which supports code generation in three locations: `model`, `proto`, `handler`, and `test`. In other words, the project can generate code step by step based on the `table sql`, achieving a generic database microservice capability.
 
