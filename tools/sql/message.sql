@@ -1,9 +1,8 @@
-CREATE TABLE IF NOT EXISTS `message`
-(
+CREATE TABLE IF NOT EXISTS `message` (
     id          int auto_increment primary key,
     title       varchar(60)                          not null comment '标题',
     content     varchar(256)                         null comment '内容',
-    is_read    tinyint(1) default 0                 null comment '是否已读',
+    is_read     tinyint(1) default 0                 null comment '是否已读',
     oplog_id    int                                  null comment '操作日志id',
     user_id     int                                  null comment '这条消息属于哪个用户的，用户id',
     create_time timestamp  default CURRENT_TIMESTAMP null comment '创建时间',

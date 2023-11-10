@@ -1,5 +1,4 @@
-CREATE TABLE IF NOT EXISTS `team`
-(
+CREATE TABLE IF NOT EXISTS `team` (
     id          int auto_increment  primary key,
     team_name   varchar(10) not null comment '团队名',
     parent_id   int         not null comment '父团队id',

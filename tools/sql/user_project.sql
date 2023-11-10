@@ -1,5 +1,4 @@
-CREATE TABLE IF NOT EXISTS `user_project`
-(
+CREATE TABLE IF NOT EXISTS `user_project` (
     id              int auto_increment primary key,
     user_id         int         not null comment '用户id',
     project_id      int         not null comment '项目id',

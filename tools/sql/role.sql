@@ -1,5 +1,4 @@
-CREATE TABLE IF NOT EXISTS `role`
-(
+CREATE TABLE IF NOT EXISTS `role` (
     id           int auto_increment primary key,
     role_code    varchar(128)                         not null comment '角色编号',
     role_name    varchar(128)                         not null comment '名称',

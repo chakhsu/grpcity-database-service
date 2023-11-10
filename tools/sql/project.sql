@@ -1,5 +1,4 @@
-CREATE TABLE IF NOT EXISTS `project`
-(
+CREATE TABLE IF NOT EXISTS `project` (
     id           int auto_increment comment '项目id'     primary key,
     project_code varchar(128)                           not null comment '项目编号',
     project_name varchar(128)                           not null comment '项目名',

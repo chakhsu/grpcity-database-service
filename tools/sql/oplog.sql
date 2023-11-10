@@ -1,5 +1,4 @@
-CREATE TABLE IF NOT EXISTS `oplog`
-(
+CREATE TABLE IF NOT EXISTS `oplog` (
     id                int auto_increment primary key,
     operator_ip       varchar(64)                          not null comment '操作者ip',
     operator          varchar(64)                          null comment '操作者账号',

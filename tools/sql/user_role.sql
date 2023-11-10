@@ -1,5 +1,4 @@
-CREATE TABLE IF NOT EXISTS `user_role`
-(
+CREATE TABLE IF NOT EXISTS `user_role` (
     id              int auto_increment primary key,
     user_id         int         not null comment '用户id',
     role_id         int         not null comment '角色id',

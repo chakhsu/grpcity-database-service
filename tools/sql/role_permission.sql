@@ -1,5 +1,4 @@
-CREATE TABLE IF NOT EXISTS `role_permission`
-(
+CREATE TABLE IF NOT EXISTS `role_permission` (
     id              int auto_increment primary key,
     role_id         int         not null comment '角色id',
     permission_id   int         not null comment '权限id',

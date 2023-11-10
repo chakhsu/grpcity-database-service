@@ -1,5 +1,4 @@
-CREATE TABLE IF NOT EXISTS `permission`
-(
+CREATE TABLE IF NOT EXISTS `permission` (
     id              int auto_increment primary key,
     permission_name varchar(40) not null comment '权限名字',
     parent_id       int         not null comment '父权限id',

@@ -1,5 +1,4 @@
-CREATE TABLE IF NOT EXISTS `user`
-(
+CREATE TABLE IF NOT EXISTS `user` (
     id          int auto_increment primary key,
     user_name   varchar(64)                            not null comment '用户账号',
     pw          varchar(2048)                          not null comment '用户密码',
