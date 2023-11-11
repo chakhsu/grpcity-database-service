@@ -99,7 +99,7 @@ pnpm test
 
 ## Code Generation
 
-This project supports code generation based on the content of the `table sql`, reducing development efforts. It is suitable for scenarios where a project is newly started or new data tables are created.
+This project supports code generation based on the content of the `table sql`, reducing development efforts. It is suitable for scenarios where a project is newly started or new data tables are created. You don't need to write the code for  `model`, `proto`, `handler`, and `test`. Simply execute the relevant code generation commands.
 
 The `table sql` files are stored in the `tools/sql` directory, and the code generation scripts are located in the `tools` directory.
 
