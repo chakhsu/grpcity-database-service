@@ -9,8 +9,8 @@ dependencies:
     specifier: ^3.7.2
     version: 3.7.2
   grpcity:
-    specifier: ^0.11.0
-    version: 0.11.0
+    specifier: ^0.11.1
+    version: 0.11.1
   lodash-es:
     specifier: ^4.17.21
     version: 4.17.21
@@ -1478,8 +1478,8 @@ packages:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
 
-  /grpcity@0.11.0:
-    resolution: {integrity: sha512-IrP6iXdR3YVGj0Mlunxr3WYwkrq15hAbrq1tR35dpV7yXVu7EMIUencTL9YkalLolhj5YOdfg539T/4Mt03ceg==}
+  /grpcity@0.11.1:
+    resolution: {integrity: sha512-JaORvYglI69cyIPfrl6kXC8L2BF4J67OSKh715d2UqL584hhURWwQWcjj/2hO8tpqn8HYYH0LPr4v0ByAmX5xQ==}
     engines: {node: '>=16'}
     dependencies:
       '@grpc/grpc-js': 1.9.9
