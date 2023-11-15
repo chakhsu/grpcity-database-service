@@ -9,8 +9,8 @@ dependencies:
     specifier: ^3.7.2
     version: 3.7.2
   grpcity:
-    specifier: ^0.9.5
-    version: 0.9.5
+    specifier: ^0.11.0
+    version: 0.11.0
   lodash-es:
     specifier: ^4.17.21
     version: 4.17.21
@@ -24,8 +24,8 @@ dependencies:
     specifier: ^10.2.3
     version: 10.2.3
   sequelize:
-    specifier: ^6.34.0
-    version: 6.34.0(mysql2@3.6.3)
+    specifier: ^6.35.0
+    version: 6.35.0(mysql2@3.6.3)
 
 devDependencies:
   ava:
@@ -39,7 +39,7 @@ devDependencies:
     version: 3.0.1
   sequelize-auto:
     specifier: ^0.8.8
-    version: 0.8.8(sequelize@6.34.0)
+    version: 0.8.8(sequelize@6.35.0)
   snazzy:
     specifier: ^9.0.0
     version: 9.0.0
@@ -1478,8 +1478,9 @@ packages:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
 
-  /grpcity@0.9.5:
-    resolution: {integrity: sha512-pEKb3A/srfbEoZS96Q7fp83i8USFRR2tKxMmYBTw1faQWpgb4SUwaLqa7YVIhkaCuo/As2hDTu5uqqpvlCKbzA==}
+  /grpcity@0.11.0:
+    resolution: {integrity: sha512-IrP6iXdR3YVGj0Mlunxr3WYwkrq15hAbrq1tR35dpV7yXVu7EMIUencTL9YkalLolhj5YOdfg539T/4Mt03ceg==}
+    engines: {node: '>=16'}
     dependencies:
       '@grpc/grpc-js': 1.9.9
       '@grpc/proto-loader': 0.7.10
@@ -2702,7 +2703,7 @@ packages:
   /seq-queue@0.0.5:
     resolution: {integrity: sha512-hr3Wtp/GZIc/6DAGPDcV4/9WoZhjrkXsi5B/07QgX8tsdc6ilr7BFM6PM6rbdAX1kFSDYeZGLipIZZKyQP0O5Q==}
 
-  /sequelize-auto@0.8.8(sequelize@6.34.0):
+  /sequelize-auto@0.8.8(sequelize@6.35.0):
     resolution: {integrity: sha512-9o0qi2yMA86oFqcA5Nh14PnQSHP0E9WPEB4hP/NgxqdFE44Nq2u8Di5O3xmvWwXMIV6W+Q0YI/2VTLvlMJAjnQ==}
     engines: {node: '>= 10'}
     hasBin: true
@@ -2712,7 +2713,7 @@ packages:
       lodash: 4.17.21
       mkdirp: 1.0.4
       reserved-words: 0.1.2
-      sequelize: 6.34.0(mysql2@3.6.3)
+      sequelize: 6.35.0(mysql2@3.6.3)
       yargs: 16.2.0
     dev: true
 
@@ -2720,8 +2721,8 @@ packages:
     resolution: {integrity: sha512-G9c0qlIWQSK29pR/5U2JF5dDQeqqHRragoyahj/Nx4KOOQ3CPPfzxnfqFPCSB7x5UgjOgnZ61nSxz+fjDpRlJg==}
     engines: {node: '>= 10.0.0'}
 
-  /sequelize@6.34.0(mysql2@3.6.3):
-    resolution: {integrity: sha512-B3eYLG4nUnsIcPO8k6UH6bqSf5Hi3HHCEtcwfiKsp2J0iG3tv9v8lpHFz6Qd8g5QnWxAl9R5rCCXG8fRWo902Q==}
+  /sequelize@6.35.0(mysql2@3.6.3):
+    resolution: {integrity: sha512-cnxnmjUfphGfSKCwTtNZ3YD/F35fqMTNPw/Qe9xsMij49t6LkW2G57sNQkuKac8fkQgSX+M8OZOQsxCS6dnUwQ==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       ibm_db: '*'

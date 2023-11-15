@@ -12,16 +12,16 @@ test.before(async t => {
 
 test.serial('rolePermission e2e test', async t => {
   const rolePermission = {
-    roleId: 4,
-    permissionId: 2,
+    roleId: 9,
+    permissionId: 9,
     appName: 'db-service-1'
   }
 
   const rolePermissions = []
   for (let i = 0; i < 3; i++) {
     rolePermissions.push({
-      roleId: 4,
-      permissionId: 2,
+      roleId: 9,
+      permissionId: 9,
       appName: 'db-service-1'
     })
   }

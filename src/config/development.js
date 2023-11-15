@@ -15,16 +15,16 @@ export default {
     port: 10051,
     services: {
       // all for e2e test
-      'services.collection.UserDB': '0.0.0.0:10051',
-      'services.collection.UserRoleDB': '0.0.0.0:10051',
-      'services.collection.RoleDB': '0.0.0.0:10051',
-      'services.collection.PermissionDB': '0.0.0.0:10051',
-      'services.collection.RolePermissionDB': '0.0.0.0:10051',
-      'services.collection.ProjectDB': '0.0.0.0:10051',
-      'services.collection.UserProjectDB': '0.0.0.0:10051',
-      'services.collection.TeamDB': '0.0.0.0:10051',
-      'services.collection.MessageDB': '0.0.0.0:10051',
-      'services.collection.OplogDB': '0.0.0.0:10051'
+      'services.collection.UserDB': '127.0.0.1:10051',
+      'services.collection.UserRoleDB': '127.0.0.1:10051',
+      'services.collection.RoleDB': '127.0.0.1:10051',
+      'services.collection.PermissionDB': '127.0.0.1:10051',
+      'services.collection.RolePermissionDB': '127.0.0.1:10051',
+      'services.collection.ProjectDB': '127.0.0.1:10051',
+      'services.collection.UserProjectDB': '127.0.0.1:10051',
+      'services.collection.TeamDB': '127.0.0.1:10051',
+      'services.collection.MessageDB': '127.0.0.1:10051',
+      'services.collection.OplogDB': '127.0.0.1:10051'
     }
   },
   mysql: {

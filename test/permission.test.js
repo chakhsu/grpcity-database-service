@@ -12,22 +12,22 @@ test.before(async t => {
 
 test.serial('permission e2e test', async t => {
   const permission = {
-    permissionName: 'SyPqa',
-    parentId: 4,
-    leaf: 10,
-    level: 5,
-    description: 'QpirF',
+    permissionName: 'ACoD4',
+    parentId: 5,
+    leaf: 3,
+    level: 4,
+    description: '53RyC',
     appName: 'db-service-1'
   }
 
   const permissions = []
   for (let i = 0; i < 3; i++) {
     permissions.push({
-      permissionName: 'SyPqa',
-      parentId: 4,
-      leaf: 10,
-      level: 5,
-      description: 'QpirF',
+      permissionName: 'ACoD4',
+      parentId: 5,
+      leaf: 3,
+      level: 4,
+      description: '53RyC',
       appName: 'db-service-1'
     })
   }

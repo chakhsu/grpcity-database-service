@@ -12,28 +12,28 @@ test.before(async t => {
 
 test.serial('oplog e2e test', async t => {
   const oplog = {
-    operatorIp: 'l2IvR',
-    operator: 'lWVGt',
-    operatePage: 'PB36x',
-    operateType: 'K0rM7',
-    targetType: 'pWQ0y',
-    target: 'AU4cZ',
-    operationMethods: '6BNHm',
-    detail: 'mBUY6',
+    operatorIp: 'rYmB1',
+    operator: 'Sv06Z',
+    operatePage: 'mg1v5',
+    operateType: 'TvwwH',
+    targetType: 'QHzOA',
+    target: '3Gcgz',
+    operationMethods: 'qvDcQ',
+    detail: 'xXmfj',
     appName: 'db-service-1'
   }
 
   const oplogs = []
   for (let i = 0; i < 3; i++) {
     oplogs.push({
-      operatorIp: 'l2IvR',
-      operator: 'lWVGt',
-      operatePage: 'PB36x',
-      operateType: 'K0rM7',
-      targetType: 'pWQ0y',
-      target: 'AU4cZ',
-      operationMethods: '6BNHm',
-      detail: 'mBUY6',
+      operatorIp: 'rYmB1',
+      operator: 'Sv06Z',
+      operatePage: 'mg1v5',
+      operateType: 'TvwwH',
+      targetType: 'QHzOA',
+      target: '3Gcgz',
+      operationMethods: 'qvDcQ',
+      detail: 'xXmfj',
       appName: 'db-service-1'
     })
   }

@@ -1,4 +1,3 @@
-import grpc from '../lib/grpc.js'
 import BaseHandler from './baseHandler.js'
 
 class TeamHandler extends BaseHandler {
@@ -8,10 +7,7 @@ class TeamHandler extends BaseHandler {
   }
 
   init (server) {
-    server.addService(
-      grpc.service('services.collection.TeamDB'),
-      grpc.callbackify(this, { exclude: ['init'], inherit: BaseHandler })
-    )
+    server.addService('services.collection.TeamDB', this, { exclude: ['init'], inherit: BaseHandler })
   }
 }
 

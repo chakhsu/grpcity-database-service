@@ -8,8 +8,7 @@ import { fileURLToPath } from 'node:url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const genHandlerTemplate = (name) => {
-  return `import grpc from '../lib/grpc.js'
-import BaseHandler from './baseHandler.js'
+  return `import BaseHandler from './baseHandler.js'
 
 class ${_.upperFirst(name)}Handler extends BaseHandler {
   // eslint-disable-next-line
@@ -18,10 +17,7 @@ class ${_.upperFirst(name)}Handler extends BaseHandler {
   }
 
   init (server) {
-    server.addService(
-      grpc.service('services.collection.${_.upperFirst(name)}DB'),
-      grpc.callbackify(this, { exclude: ['init'], inherit: BaseHandler })
-    )
+    server.addService('services.collection.${_.upperFirst(name)}DB', this, { exclude: ['init'], inherit: BaseHandler })
   }
 }
 

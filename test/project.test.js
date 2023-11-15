@@ -12,22 +12,22 @@ test.before(async t => {
 
 test.serial('project e2e test', async t => {
   const project = {
-    projectCode: 'jhbiX',
-    projectName: 'G8t4s',
-    description: 'l2FjR',
-    teamId: 10,
-    running: 4,
+    projectCode: 'jQA7c',
+    projectName: 'EpQ7r',
+    description: 'gC8Db',
+    teamId: 8,
+    running: 2,
     appName: 'db-service-1'
   }
 
   const projects = []
   for (let i = 0; i < 3; i++) {
     projects.push({
-      projectCode: 'jhbiX',
-      projectName: 'G8t4s',
-      description: 'l2FjR',
-      teamId: 10,
-      running: 4,
+      projectCode: 'jQA7c',
+      projectName: 'EpQ7r',
+      description: 'gC8Db',
+      teamId: 8,
+      running: 2,
       appName: 'db-service-1'
     })
   }

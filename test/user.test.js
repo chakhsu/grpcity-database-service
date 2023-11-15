@@ -12,26 +12,26 @@ test.before(async t => {
 
 test.serial('user e2e test', async t => {
   const user = {
-    userName: 'Zjb9W',
-    pw: 'zdFNw',
-    salt: 'RqdkY',
-    realName: 'hKtDy',
-    phone: 'J1alJ',
-    email: '1Xo1z',
-    teamId: 10,
+    userName: 'XvFX3',
+    pw: '3sf5P',
+    salt: 'ALk9l',
+    realName: 'evSHf',
+    phone: '6NSK3',
+    email: '5MWSs',
+    teamId: 2,
     appName: 'db-service-1'
   }
 
   const users = []
   for (let i = 0; i < 3; i++) {
     users.push({
-      userName: 'Zjb9W',
-      pw: 'zdFNw',
-      salt: 'RqdkY',
-      realName: 'hKtDy',
-      phone: 'J1alJ',
-      email: '1Xo1z',
-      teamId: 10,
+      userName: 'XvFX3',
+      pw: '3sf5P',
+      salt: 'ALk9l',
+      realName: 'evSHf',
+      phone: '6NSK3',
+      email: '5MWSs',
+      teamId: 2,
       appName: 'db-service-1'
     })
   }

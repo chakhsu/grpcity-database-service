@@ -12,20 +12,20 @@ test.before(async t => {
 
 test.serial('role e2e test', async t => {
   const role = {
-    roleCode: 'S9glP',
-    roleName: '6byYG',
-    description: '0fIdZ',
-    lastReviser: 'zFjUQ',
+    roleCode: 'Bwmzg',
+    roleName: 'lgMLK',
+    description: 'mIvjy',
+    lastReviser: 'KcsbT',
     appName: 'db-service-1'
   }
 
   const roles = []
   for (let i = 0; i < 3; i++) {
     roles.push({
-      roleCode: 'S9glP',
-      roleName: '6byYG',
-      description: '0fIdZ',
-      lastReviser: 'zFjUQ',
+      roleCode: 'Bwmzg',
+      roleName: 'lgMLK',
+      description: 'mIvjy',
+      lastReviser: 'KcsbT',
       appName: 'db-service-1'
     })
   }

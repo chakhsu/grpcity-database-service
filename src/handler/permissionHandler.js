@@ -1,4 +1,3 @@
-import grpc from '../lib/grpc.js'
 import BaseHandler from './baseHandler.js'
 
 class PermissionHandler extends BaseHandler {
@@ -8,10 +7,7 @@ class PermissionHandler extends BaseHandler {
   }
 
   init (server) {
-    server.addService(
-      grpc.service('services.collection.PermissionDB'),
-      grpc.callbackify(this, { exclude: ['init'], inherit: BaseHandler })
-    )
+    server.addService('services.collection.PermissionDB', this, { exclude: ['init'], inherit: BaseHandler })
   }
 }
 

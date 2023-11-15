@@ -12,16 +12,16 @@ test.before(async t => {
 
 test.serial('userProject e2e test', async t => {
   const userProject = {
-    userId: 7,
-    projectId: 9,
+    userId: 10,
+    projectId: 2,
     appName: 'db-service-1'
   }
 
   const userProjects = []
   for (let i = 0; i < 3; i++) {
     userProjects.push({
-      userId: 7,
-      projectId: 9,
+      userId: 10,
+      projectId: 2,
       appName: 'db-service-1'
     })
   }

@@ -12,22 +12,22 @@ test.before(async t => {
 
 test.serial('message e2e test', async t => {
   const message = {
-    title: 'wf9Ae',
-    content: 'K8lDb',
+    title: 'uMeaw',
+    content: 'nfFzZ',
     isRead: 9,
-    oplogId: 6,
-    userId: 7,
+    oplogId: 7,
+    userId: 5,
     appName: 'db-service-1'
   }
 
   const messages = []
   for (let i = 0; i < 3; i++) {
     messages.push({
-      title: 'wf9Ae',
-      content: 'K8lDb',
+      title: 'uMeaw',
+      content: 'nfFzZ',
       isRead: 9,
-      oplogId: 6,
-      userId: 7,
+      oplogId: 7,
+      userId: 5,
       appName: 'db-service-1'
     })
   }

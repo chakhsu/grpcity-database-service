@@ -1,4 +1,3 @@
-import grpc from '../lib/grpc.js'
 import BaseHandler from './baseHandler.js'
 
 class OplogHandler extends BaseHandler {
@@ -8,10 +7,7 @@ class OplogHandler extends BaseHandler {
   }
 
   init (server) {
-    server.addService(
-      grpc.service('services.collection.OplogDB'),
-      grpc.callbackify(this, { exclude: ['init'], inherit: BaseHandler })
-    )
+    server.addService('services.collection.OplogDB', this, { exclude: ['init'], inherit: BaseHandler })
   }
 }
 

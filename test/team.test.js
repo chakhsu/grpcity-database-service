@@ -12,22 +12,22 @@ test.before(async t => {
 
 test.serial('team e2e test', async t => {
   const team = {
-    teamName: 'IKp0z',
-    parentId: 7,
-    leaf: 10,
-    level: 7,
-    description: 'ryMZ3',
+    teamName: 'lCm8X',
+    parentId: 8,
+    leaf: 4,
+    level: 9,
+    description: 'REXfl',
     appName: 'db-service-1'
   }
 
   const teams = []
   for (let i = 0; i < 3; i++) {
     teams.push({
-      teamName: 'IKp0z',
-      parentId: 7,
-      leaf: 10,
-      level: 7,
-      description: 'ryMZ3',
+      teamName: 'lCm8X',
+      parentId: 8,
+      leaf: 4,
+      level: 9,
+      description: 'REXfl',
       appName: 'db-service-1'
     })
   }

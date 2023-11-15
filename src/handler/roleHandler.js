@@ -1,4 +1,3 @@
-import grpc from '../lib/grpc.js'
 import BaseHandler from './baseHandler.js'
 
 class RoleHandler extends BaseHandler {
@@ -8,10 +7,7 @@ class RoleHandler extends BaseHandler {
   }
 
   init (server) {
-    server.addService(
-      grpc.service('services.collection.RoleDB'),
-      grpc.callbackify(this, { exclude: ['init'], inherit: BaseHandler })
-    )
+    server.addService('services.collection.RoleDB', this, { exclude: ['init'], inherit: BaseHandler })
   }
 }
 
