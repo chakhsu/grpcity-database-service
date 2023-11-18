@@ -9,8 +9,8 @@ dependencies:
     specifier: ^3.7.2
     version: 3.7.2
   grpcity:
-    specifier: ^0.11.1
-    version: 0.11.1
+    specifier: ^1.0.0
+    version: 1.0.0
   lodash-es:
     specifier: ^4.17.21
     version: 4.17.21
@@ -18,8 +18,8 @@ dependencies:
     specifier: ^3.6.3
     version: 3.6.3
   pino:
-    specifier: ^8.16.1
-    version: 8.16.1
+    specifier: ^8.16.2
+    version: 8.16.2
   pino-pretty:
     specifier: ^10.2.3
     version: 10.2.3
@@ -91,8 +91,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@grpc/grpc-js@1.9.9:
-    resolution: {integrity: sha512-vQ1qwi/Kiyprt+uhb1+rHMpyk4CVRMTGNUGGPRGS7pLNfWkdCHrGEnT6T3/JyC2VZgoOX/X1KwdoU0WYQAeYcQ==}
+  /@grpc/grpc-js@1.9.11:
+    resolution: {integrity: sha512-QDhMfbTROOXUhLHMroow8f3EHiCKUOh6UwxMP5S3EuXMnWMNSVIhatGZRwkpg9OUTYdZPsDUVH3cOAkWhGFUJw==}
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.10
@@ -1478,11 +1478,11 @@ packages:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
 
-  /grpcity@0.11.1:
-    resolution: {integrity: sha512-JaORvYglI69cyIPfrl6kXC8L2BF4J67OSKh715d2UqL584hhURWwQWcjj/2hO8tpqn8HYYH0LPr4v0ByAmX5xQ==}
+  /grpcity@1.0.0:
+    resolution: {integrity: sha512-jmsqlEUJWEzkvVzAoAxqYHxhG5XSvH3KSNyEhACt1E090g94a29KgZ7qZpjRM8Ou+zmOXRw2AH/1VZuRMiFuJQ==}
     engines: {node: '>=16'}
     dependencies:
-      '@grpc/grpc-js': 1.9.9
+      '@grpc/grpc-js': 1.9.11
       '@grpc/proto-loader': 0.7.10
       debug: 4.3.4
       joi: 17.11.0
@@ -2418,8 +2418,8 @@ packages:
     resolution: {integrity: sha512-cHjPPsE+vhj/tnhCy/wiMh3M3z3h/j15zHQX+S9GkTBgqJuTuJzYJ4gUyACLhDaJ7kk9ba9iRDmbH2tJU03OiA==}
     dev: false
 
-  /pino@8.16.1:
-    resolution: {integrity: sha512-3bKsVhBmgPjGV9pyn4fO/8RtoVDR8ssW1ev819FsRXlRNgW8gR/9Kx+gCK4UPWd4JjrRDLWpzd/pb1AyWm3MGA==}
+  /pino@8.16.2:
+    resolution: {integrity: sha512-2advCDGVEvkKu9TTVSa/kWW7Z3htI/sBKEZpqiHk6ive0i/7f5b1rsU8jn0aimxqfnSz5bj/nOYkwhBUn5xxvg==}
     hasBin: true
     dependencies:
       atomic-sleep: 1.0.0
