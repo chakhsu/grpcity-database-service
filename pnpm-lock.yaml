@@ -9,8 +9,8 @@ dependencies:
     specifier: ^3.7.2
     version: 3.7.2
   grpcity:
-    specifier: ^1.1.1
-    version: 1.1.1
+    specifier: ^1.2.0
+    version: 1.2.0
   lodash-es:
     specifier: ^4.17.21
     version: 4.17.21
@@ -1478,17 +1478,15 @@ packages:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
 
-  /grpcity@1.1.1:
-    resolution: {integrity: sha512-Si742UrHG562eBx2Ye/kiW+WQ/Dwy/YWhy8Qw5V6rmtNnJ4epHpy4ssO5sN7CdS/ejcaNjBLWAj+sEmmQpvFIQ==}
+  /grpcity@1.2.0:
+    resolution: {integrity: sha512-eiHzlTsA+w65TZjO7ieyZQARBXxGFjth+ZPa/Acqs3kMgBxGcylizzKweTMRwZvJ5Czj5n0T9Kef+0PXn97M4Q==}
     engines: {node: '>=14'}
     dependencies:
       '@grpc/grpc-js': 1.9.11
       '@grpc/proto-loader': 0.7.10
       debug: 4.3.4
       joi: 17.11.0
-      koa-compose: 4.1.0
       lodash: 4.17.21
-      p-event: 4.2.0
       protobufjs: 7.2.5
     transitivePeerDependencies:
       - supports-color
@@ -1911,10 +1909,6 @@ packages:
       json-buffer: 3.0.1
     dev: true
 
-  /koa-compose@4.1.0:
-    resolution: {integrity: sha512-8ODW8TrDuMYvXRwra/Kh7/rJo9BtOfPc6qO8eAfC80CnCvSjSl0bkRM24X6/XBBEyj0v1nRUQ1LyOy3dbqOWXw==}
-    dev: false
-
   /levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
@@ -2235,24 +2229,12 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /p-event@4.2.0:
-    resolution: {integrity: sha512-KXatOjCRXXkSePPb1Nbi0p0m+gQAwdlbhi4wQKJPI1HsMQS9g+Sqp2o+QHziPr7eYJyOZet836KoHEVM1mwOrQ==}
-    engines: {node: '>=8'}
-    dependencies:
-      p-timeout: 3.2.0
-    dev: false
-
   /p-event@5.0.1:
     resolution: {integrity: sha512-dd589iCQ7m1L0bmC5NLlVYfy3TbBEsMUfWx9PyAgPeIcFZ/E2yaTZ4Rz4MiBmmJShviiftHVXOqfnfzJ6kyMrQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       p-timeout: 5.1.0
     dev: true
-
-  /p-finally@1.0.0:
-    resolution: {integrity: sha512-LICb2p9CB7FS+0eR1oqWnHhp0FljGLZCWBE9aix0Uye9W8LTQPwMTYVGWQWIw9RdQiDg4+epXQODwIYJtSJaow==}
-    engines: {node: '>=4'}
-    dev: false
 
   /p-limit@2.3.0:
     resolution: {integrity: sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==}
@@ -2302,13 +2284,6 @@ packages:
     dependencies:
       aggregate-error: 4.0.1
     dev: true
-
-  /p-timeout@3.2.0:
-    resolution: {integrity: sha512-rhIwUycgwwKcP9yTOOFK/AKsAopjjCakVqLHePO3CC6Mir1Z99xT+R63jZxAT5lFZLa2inS5h+ZS2GvR99/FBg==}
-    engines: {node: '>=8'}
-    dependencies:
-      p-finally: 1.0.0
-    dev: false
 
   /p-timeout@5.1.0:
     resolution: {integrity: sha512-auFDyzzzGZZZdHz3BtET9VEz0SE/uMEAx7uWfGPucfzEwwe/xH0iVeZibQmANYE/hp9T2+UUZT5m+BKyrDp3Ew==}
