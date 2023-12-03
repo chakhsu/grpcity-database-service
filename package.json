@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "bluebird": "^3.7.2",
-    "grpcity": "^1.2.0",
+    "grpcity": "^1.3.0",
     "lodash-es": "^4.17.21",
     "mysql2": "^3.6.5",
     "pino": "^8.16.2",
@@ -39,7 +39,7 @@
   "devDependencies": {
     "ava": "^5.3.1",
     "husky": "^8.0.3",
-    "nodemon": "^3.0.1",
+    "nodemon": "^3.0.2",
     "sequelize-auto": "^0.8.8",
     "snazzy": "^9.0.0",
     "standard": "^17.1.0"
