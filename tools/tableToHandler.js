@@ -17,7 +17,7 @@ class ${_.upperFirst(name)}Handler extends BaseHandler {
   }
 
   init (server) {
-    server.addService('services.collection.${_.upperFirst(name)}DB', this, { exclude: ['init'], inherit: BaseHandler })
+    server.add('services.collection.${_.upperFirst(name)}DB', this, { exclude: ['init'], inherit: BaseHandler })
   }
 }
 

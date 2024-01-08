@@ -36,6 +36,8 @@ If you are interested in using the `gRPCity` library for production purposes, th
 
 ### Directory Structure
 
+First-level directory structure：
+
 Directory | Function
 --- | ---
 bin | Application entry point
@@ -43,6 +45,8 @@ src | Main code
 test | Test code
 pm2 | Execution code for PM2
 protos | Proto code
+
+`src` directory structure：
 
 Directory | Function | Example
 --- | --- | ---

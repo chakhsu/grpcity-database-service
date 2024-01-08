@@ -7,7 +7,7 @@ class ProjectHandler extends BaseHandler {
   }
 
   init (server) {
-    server.addService('services.collection.ProjectDB', this, { exclude: ['init'], inherit: BaseHandler })
+    server.add('services.collection.ProjectDB', this, { exclude: ['init'], inherit: BaseHandler })
   }
 }
 

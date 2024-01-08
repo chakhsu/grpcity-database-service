@@ -2,32 +2,30 @@ import test from 'ava'
 import grpc from '../src/lib/grpc.js'
 import Config from '../src/config/index.js'
 
-test.before(async t => {
+test.serial('project e2e test', async t => {
   const config = Config.get()
   config.logger.level = 'warn'
   await grpc.init()
-  await grpc.initClients({ services: config.grpc.services })
+  const clients = await grpc.initClients({ services: config.grpc.services })
   t.timeout(3 * 1000)
-})
 
-test.serial('project e2e test', async t => {
   const project = {
-    projectCode: 'jQA7c',
-    projectName: 'EpQ7r',
-    description: 'gC8Db',
-    teamId: 8,
-    running: 2,
+    projectCode: '0ZuYO',
+    projectName: 'B7rUT',
+    description: '7mcPC',
+    teamId: 5,
+    running: 1,
     appName: 'db-service-1'
   }
 
   const projects = []
   for (let i = 0; i < 3; i++) {
     projects.push({
-      projectCode: 'jQA7c',
-      projectName: 'EpQ7r',
-      description: 'gC8Db',
-      teamId: 8,
-      running: 2,
+      projectCode: '0ZuYO',
+      projectName: 'B7rUT',
+      description: '7mcPC',
+      teamId: 5,
+      running: 1,
       appName: 'db-service-1'
     })
   }
@@ -69,7 +67,7 @@ test.serial('project e2e test', async t => {
     }
   }
 
-  const projectDB = grpc.client('services.collection.ProjectDB')
+  const projectDB = clients.get('services.collection.ProjectDB')
   const result = await projectDB.createOne({ project })
   t.assert(result.response.id)
   t.log(result)

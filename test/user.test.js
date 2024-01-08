@@ -2,36 +2,34 @@ import test from 'ava'
 import grpc from '../src/lib/grpc.js'
 import Config from '../src/config/index.js'
 
-test.before(async t => {
+test.serial('user e2e test', async t => {
   const config = Config.get()
   config.logger.level = 'warn'
   await grpc.init()
-  await grpc.initClients({ services: config.grpc.services })
+  const clients = await grpc.initClients({ services: config.grpc.services })
   t.timeout(3 * 1000)
-})
 
-test.serial('user e2e test', async t => {
   const user = {
-    userName: 'XvFX3',
-    pw: '3sf5P',
-    salt: 'ALk9l',
-    realName: 'evSHf',
-    phone: '6NSK3',
-    email: '5MWSs',
-    teamId: 2,
+    userName: 'SCXKw',
+    pw: 'ttpSb',
+    salt: 'zpyaX',
+    realName: 'bxReh',
+    phone: 'y4wFg',
+    email: '0K1U3',
+    teamId: 10,
     appName: 'db-service-1'
   }
 
   const users = []
   for (let i = 0; i < 3; i++) {
     users.push({
-      userName: 'XvFX3',
-      pw: '3sf5P',
-      salt: 'ALk9l',
-      realName: 'evSHf',
-      phone: '6NSK3',
-      email: '5MWSs',
-      teamId: 2,
+      userName: 'SCXKw',
+      pw: 'ttpSb',
+      salt: 'zpyaX',
+      realName: 'bxReh',
+      phone: 'y4wFg',
+      email: '0K1U3',
+      teamId: 10,
       appName: 'db-service-1'
     })
   }
@@ -73,7 +71,7 @@ test.serial('user e2e test', async t => {
     }
   }
 
-  const userDB = grpc.client('services.collection.UserDB')
+  const userDB = clients.get('services.collection.UserDB')
   const result = await userDB.createOne({ user })
   t.assert(result.response.id)
   t.log(result)

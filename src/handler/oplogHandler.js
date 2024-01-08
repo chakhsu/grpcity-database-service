@@ -7,7 +7,7 @@ class OplogHandler extends BaseHandler {
   }
 
   init (server) {
-    server.addService('services.collection.OplogDB', this, { exclude: ['init'], inherit: BaseHandler })
+    server.add('services.collection.OplogDB', this, { exclude: ['init'], inherit: BaseHandler })
   }
 }
 

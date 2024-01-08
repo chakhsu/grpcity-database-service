@@ -2,38 +2,36 @@ import test from 'ava'
 import grpc from '../src/lib/grpc.js'
 import Config from '../src/config/index.js'
 
-test.before(async t => {
+test.serial('oplog e2e test', async t => {
   const config = Config.get()
   config.logger.level = 'warn'
   await grpc.init()
-  await grpc.initClients({ services: config.grpc.services })
+  const clients = await grpc.initClients({ services: config.grpc.services })
   t.timeout(3 * 1000)
-})
 
-test.serial('oplog e2e test', async t => {
   const oplog = {
-    operatorIp: 'rYmB1',
-    operator: 'Sv06Z',
-    operatePage: 'mg1v5',
-    operateType: 'TvwwH',
-    targetType: 'QHzOA',
-    target: '3Gcgz',
-    operationMethods: 'qvDcQ',
-    detail: 'xXmfj',
+    operatorIp: 'N1132',
+    operator: 'kdsvg',
+    operatePage: '53e37',
+    operateType: 'DXZTV',
+    targetType: 'AYvoP',
+    target: '1AfIG',
+    operationMethods: '1qCdK',
+    detail: 'K1vIV',
     appName: 'db-service-1'
   }
 
   const oplogs = []
   for (let i = 0; i < 3; i++) {
     oplogs.push({
-      operatorIp: 'rYmB1',
-      operator: 'Sv06Z',
-      operatePage: 'mg1v5',
-      operateType: 'TvwwH',
-      targetType: 'QHzOA',
-      target: '3Gcgz',
-      operationMethods: 'qvDcQ',
-      detail: 'xXmfj',
+      operatorIp: 'N1132',
+      operator: 'kdsvg',
+      operatePage: '53e37',
+      operateType: 'DXZTV',
+      targetType: 'AYvoP',
+      target: '1AfIG',
+      operationMethods: '1qCdK',
+      detail: 'K1vIV',
       appName: 'db-service-1'
     })
   }
@@ -75,7 +73,7 @@ test.serial('oplog e2e test', async t => {
     }
   }
 
-  const oplogDB = grpc.client('services.collection.OplogDB')
+  const oplogDB = clients.get('services.collection.OplogDB')
   const result = await oplogDB.createOne({ oplog })
   t.assert(result.response.id)
   t.log(result)

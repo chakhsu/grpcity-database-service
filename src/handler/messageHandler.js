@@ -7,7 +7,7 @@ class MessageHandler extends BaseHandler {
   }
 
   init (server) {
-    server.addService('services.collection.MessageDB', this, { exclude: ['init'], inherit: BaseHandler })
+    server.add('services.collection.MessageDB', this, { exclude: ['init'], inherit: BaseHandler })
   }
 }
 

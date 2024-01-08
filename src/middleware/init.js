@@ -3,8 +3,8 @@ import rpcLog from './rpcLog.js'
 
 class Middleware {
   init (server) {
-    server.addMiddleware(error.middleware)
-    server.addMiddleware(rpcLog.middleware)
+    server.use(error.middleware)
+    server.use(rpcLog.middleware)
   }
 }
 

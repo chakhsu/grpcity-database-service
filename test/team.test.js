@@ -2,32 +2,30 @@ import test from 'ava'
 import grpc from '../src/lib/grpc.js'
 import Config from '../src/config/index.js'
 
-test.before(async t => {
+test.serial('team e2e test', async t => {
   const config = Config.get()
   config.logger.level = 'warn'
   await grpc.init()
-  await grpc.initClients({ services: config.grpc.services })
+  const clients = await grpc.initClients({ services: config.grpc.services })
   t.timeout(3 * 1000)
-})
 
-test.serial('team e2e test', async t => {
   const team = {
-    teamName: 'lCm8X',
-    parentId: 8,
+    teamName: 'dTkmG',
+    parentId: 2,
     leaf: 4,
     level: 9,
-    description: 'REXfl',
+    description: '5t438',
     appName: 'db-service-1'
   }
 
   const teams = []
   for (let i = 0; i < 3; i++) {
     teams.push({
-      teamName: 'lCm8X',
-      parentId: 8,
+      teamName: 'dTkmG',
+      parentId: 2,
       leaf: 4,
       level: 9,
-      description: 'REXfl',
+      description: '5t438',
       appName: 'db-service-1'
     })
   }
@@ -69,7 +67,7 @@ test.serial('team e2e test', async t => {
     }
   }
 
-  const teamDB = grpc.client('services.collection.TeamDB')
+  const teamDB = clients.get('services.collection.TeamDB')
   const result = await teamDB.createOne({ team })
   t.assert(result.response.id)
   t.log(result)

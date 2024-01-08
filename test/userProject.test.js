@@ -2,26 +2,24 @@ import test from 'ava'
 import grpc from '../src/lib/grpc.js'
 import Config from '../src/config/index.js'
 
-test.before(async t => {
+test.serial('userProject e2e test', async t => {
   const config = Config.get()
   config.logger.level = 'warn'
   await grpc.init()
-  await grpc.initClients({ services: config.grpc.services })
+  const clients = await grpc.initClients({ services: config.grpc.services })
   t.timeout(3 * 1000)
-})
 
-test.serial('userProject e2e test', async t => {
   const userProject = {
-    userId: 10,
-    projectId: 2,
+    userId: 6,
+    projectId: 8,
     appName: 'db-service-1'
   }
 
   const userProjects = []
   for (let i = 0; i < 3; i++) {
     userProjects.push({
-      userId: 10,
-      projectId: 2,
+      userId: 6,
+      projectId: 8,
       appName: 'db-service-1'
     })
   }
@@ -63,7 +61,7 @@ test.serial('userProject e2e test', async t => {
     }
   }
 
-  const userProjectDB = grpc.client('services.collection.UserProjectDB')
+  const userProjectDB = clients.get('services.collection.UserProjectDB')
   const result = await userProjectDB.createOne({ userProject })
   t.assert(result.response.id)
   t.log(result)

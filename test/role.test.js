@@ -2,30 +2,28 @@ import test from 'ava'
 import grpc from '../src/lib/grpc.js'
 import Config from '../src/config/index.js'
 
-test.before(async t => {
+test.serial('role e2e test', async t => {
   const config = Config.get()
   config.logger.level = 'warn'
   await grpc.init()
-  await grpc.initClients({ services: config.grpc.services })
+  const clients = await grpc.initClients({ services: config.grpc.services })
   t.timeout(3 * 1000)
-})
 
-test.serial('role e2e test', async t => {
   const role = {
-    roleCode: 'Bwmzg',
-    roleName: 'lgMLK',
-    description: 'mIvjy',
-    lastReviser: 'KcsbT',
+    roleCode: 'nYm8u',
+    roleName: '8oFjL',
+    description: 'uMrEE',
+    lastReviser: 'ZFDWu',
     appName: 'db-service-1'
   }
 
   const roles = []
   for (let i = 0; i < 3; i++) {
     roles.push({
-      roleCode: 'Bwmzg',
-      roleName: 'lgMLK',
-      description: 'mIvjy',
-      lastReviser: 'KcsbT',
+      roleCode: 'nYm8u',
+      roleName: '8oFjL',
+      description: 'uMrEE',
+      lastReviser: 'ZFDWu',
       appName: 'db-service-1'
     })
   }
@@ -67,7 +65,7 @@ test.serial('role e2e test', async t => {
     }
   }
 
-  const roleDB = grpc.client('services.collection.RoleDB')
+  const roleDB = clients.get('services.collection.RoleDB')
   const result = await roleDB.createOne({ role })
   t.assert(result.response.id)
   t.log(result)

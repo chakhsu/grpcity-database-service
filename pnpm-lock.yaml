@@ -9,8 +9,8 @@ dependencies:
     specifier: ^3.7.2
     version: 3.7.2
   grpcity:
-    specifier: ^1.3.1
-    version: 1.3.1
+    specifier: 2.0.0-beta-2
+    version: 2.0.0-beta-2
   lodash-es:
     specifier: ^4.17.21
     version: 4.17.21
@@ -91,8 +91,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@grpc/grpc-js@1.9.12:
-    resolution: {integrity: sha512-Um5MBuge32TS3lAKX02PGCnFM4xPT996yLgZNb5H03pn6NyJ4Iwn5YcPq6Jj9yxGRk7WOgaZFtVRH5iTdYBeUg==}
+  /@grpc/grpc-js@1.9.13:
+    resolution: {integrity: sha512-OEZZu9v9AA+7/tghMDE8o5DAMD5THVnwSqDWuh7PPYO5287rTyqy0xEHT6/e4pbqSrhyLPdQFsam4TwFQVVIIw==}
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.10
@@ -1583,14 +1583,13 @@ packages:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
 
-  /grpcity@1.3.1:
-    resolution: {integrity: sha512-BZtridXCv5mi/086MbIoX6Nlpd1bXrEV/THWSalEnlPipDP04sP64grXptHEFU8fF+gHB7RAnAVh6eLUXiDKJQ==}
+  /grpcity@2.0.0-beta-2:
+    resolution: {integrity: sha512-4CvfStXuxovzZwBWh78AgbWRG2u4ycfKOBTS7hLSfZGRMCAhBzDrTCeQsJ/hPS+SULCPMEA3yapMI0TqXNRJZg==}
     engines: {node: '>=16'}
     dependencies:
-      '@grpc/grpc-js': 1.9.12
+      '@grpc/grpc-js': 1.9.13
       '@grpc/proto-loader': 0.7.10
       joi: 17.11.0
-      lodash: 4.17.21
       protobufjs: 7.2.5
     dev: false
 

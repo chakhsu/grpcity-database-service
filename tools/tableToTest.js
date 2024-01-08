@@ -13,15 +13,13 @@ import test from 'ava'
 import grpc from '../src/lib/grpc.js'
 import Config from '../src/config/index.js'
 
-test.before(async t => {
+test.serial('${name} e2e test', async t => {
     const config = Config.get()
     config.logger.level = 'warn'
     await grpc.init()
-    await grpc.initClients({ services: config.grpc.services })
+    const clients = await grpc.initClients({ services: config.grpc.services })
     t.timeout(3 * 1000)
-})
 
-test.serial('${name} e2e test', async t => {
     const ${name} = {
 `
 }
@@ -78,7 +76,7 @@ const updateOptions = {
     }
 }
 
-const ${name}DB = grpc.client('services.collection.${_.upperFirst(name)}DB')
+const ${name}DB = clients.get('services.collection.${_.upperFirst(name)}DB')
 const result = await ${name}DB.createOne({ ${name} })
 t.assert(result.response.id)
 t.log(result)

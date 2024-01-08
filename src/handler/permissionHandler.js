@@ -7,7 +7,7 @@ class PermissionHandler extends BaseHandler {
   }
 
   init (server) {
-    server.addService('services.collection.PermissionDB', this, { exclude: ['init'], inherit: BaseHandler })
+    server.add('services.collection.PermissionDB', this, { exclude: ['init'], inherit: BaseHandler })
   }
 }
 

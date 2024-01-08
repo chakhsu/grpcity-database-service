@@ -21,15 +21,15 @@ class App {
   }
 
   async initGrpc () {
-    const { isDev, packagePrefix, services } = this._options.grpc
-    await grpc.init({ services, isDev, packagePrefix })
+    const { isDev, packagePrefix } = this._options.grpc
+    await grpc.init({ isDev, packagePrefix })
     logger.info('grpc.init finish.')
   }
 
   async startServer () {
     const { host, port } = this._options.grpc
 
-    const server = grpc.initServer()
+    const server = await grpc.initServer()
 
     middleware.init(server)
     handler.init(server)

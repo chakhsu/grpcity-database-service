@@ -7,7 +7,7 @@ class RolePermissionHandler extends BaseHandler {
   }
 
   init (server) {
-    server.addService('services.collection.RolePermissionDB', this, { exclude: ['init'], inherit: BaseHandler })
+    server.add('services.collection.RolePermissionDB', this, { exclude: ['init'], inherit: BaseHandler })
   }
 }
 

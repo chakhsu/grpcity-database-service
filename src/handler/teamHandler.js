@@ -7,7 +7,7 @@ class TeamHandler extends BaseHandler {
   }
 
   init (server) {
-    server.addService('services.collection.TeamDB', this, { exclude: ['init'], inherit: BaseHandler })
+    server.add('services.collection.TeamDB', this, { exclude: ['init'], inherit: BaseHandler })
   }
 }
 

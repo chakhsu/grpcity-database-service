@@ -7,7 +7,7 @@ class UserRoleHandler extends BaseHandler {
   }
 
   init (server) {
-    server.addService('services.collection.UserRoleDB', this, { exclude: ['init'], inherit: BaseHandler })
+    server.add('services.collection.UserRoleDB', this, { exclude: ['init'], inherit: BaseHandler })
   }
 }
 

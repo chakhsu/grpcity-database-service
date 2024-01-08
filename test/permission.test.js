@@ -2,32 +2,30 @@ import test from 'ava'
 import grpc from '../src/lib/grpc.js'
 import Config from '../src/config/index.js'
 
-test.before(async t => {
+test.serial('permission e2e test', async t => {
   const config = Config.get()
   config.logger.level = 'warn'
   await grpc.init()
-  await grpc.initClients({ services: config.grpc.services })
+  const clients = await grpc.initClients({ services: config.grpc.services })
   t.timeout(3 * 1000)
-})
 
-test.serial('permission e2e test', async t => {
   const permission = {
-    permissionName: 'ACoD4',
-    parentId: 5,
-    leaf: 3,
+    permissionName: 'oN2ru',
+    parentId: 3,
+    leaf: 1,
     level: 4,
-    description: '53RyC',
+    description: '7PDg9',
     appName: 'db-service-1'
   }
 
   const permissions = []
   for (let i = 0; i < 3; i++) {
     permissions.push({
-      permissionName: 'ACoD4',
-      parentId: 5,
-      leaf: 3,
+      permissionName: 'oN2ru',
+      parentId: 3,
+      leaf: 1,
       level: 4,
-      description: '53RyC',
+      description: '7PDg9',
       appName: 'db-service-1'
     })
   }
@@ -69,7 +67,7 @@ test.serial('permission e2e test', async t => {
     }
   }
 
-  const permissionDB = grpc.client('services.collection.PermissionDB')
+  const permissionDB = clients.get('services.collection.PermissionDB')
   const result = await permissionDB.createOne({ permission })
   t.assert(result.response.id)
   t.log(result)

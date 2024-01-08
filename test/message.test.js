@@ -2,20 +2,18 @@ import test from 'ava'
 import grpc from '../src/lib/grpc.js'
 import Config from '../src/config/index.js'
 
-test.before(async t => {
+test.serial('message e2e test', async t => {
   const config = Config.get()
   config.logger.level = 'warn'
   await grpc.init()
-  await grpc.initClients({ services: config.grpc.services })
+  const clients = await grpc.initClients({ services: config.grpc.services })
   t.timeout(3 * 1000)
-})
 
-test.serial('message e2e test', async t => {
   const message = {
-    title: 'uMeaw',
-    content: 'nfFzZ',
-    isRead: 9,
-    oplogId: 7,
+    title: '4G8at',
+    content: '5fCJ2',
+    isRead: 1,
+    oplogId: 5,
     userId: 5,
     appName: 'db-service-1'
   }
@@ -23,10 +21,10 @@ test.serial('message e2e test', async t => {
   const messages = []
   for (let i = 0; i < 3; i++) {
     messages.push({
-      title: 'uMeaw',
-      content: 'nfFzZ',
-      isRead: 9,
-      oplogId: 7,
+      title: '4G8at',
+      content: '5fCJ2',
+      isRead: 1,
+      oplogId: 5,
       userId: 5,
       appName: 'db-service-1'
     })
@@ -69,7 +67,7 @@ test.serial('message e2e test', async t => {
     }
   }
 
-  const messageDB = grpc.client('services.collection.MessageDB')
+  const messageDB = clients.get('services.collection.MessageDB')
   const result = await messageDB.createOne({ message })
   t.assert(result.response.id)
   t.log(result)
