@@ -13,6 +13,8 @@ export default {
   grpc: {
     host: '0.0.0.0',
     port: 10051,
+    isDev: true,
+    packagePrefix: 'dev',
     services: {
       // all for e2e test
       'services.collection.UserDB': '127.0.0.1:10051',
