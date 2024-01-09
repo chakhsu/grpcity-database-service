@@ -31,6 +31,9 @@ class App {
 
     const server = await grpc.initServer()
 
+    const reflection = await grpc.initReflection()
+    server.inject(reflection)
+
     middleware.init(server)
     handler.init(server)
 

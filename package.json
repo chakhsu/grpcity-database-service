@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "bluebird": "^3.7.2",
-    "grpcity": "^2.0.0",
+    "grpcity": "^2.1.0",
     "lodash-es": "^4.17.21",
     "mysql2": "^3.7.0",
     "pino": "^8.17.2",
